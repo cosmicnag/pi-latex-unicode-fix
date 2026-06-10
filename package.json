@@ -1,0 +1,11 @@
+{
+  "name": "pi-latex-unicode-fix",
+  "version": "1.0.0",
+  "description": "Pi extension to convert LaTeX symbols to Unicode characters for better TUI rendering.",
+  "main": "src/index.ts",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "@earendil-works/pi-coding-agent": "latest"
+  }
+}
