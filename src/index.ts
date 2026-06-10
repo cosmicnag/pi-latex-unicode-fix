@@ -4,6 +4,7 @@ const LATEX_MAP: Record<string, string> = {
   "\\downarrow": "↓",
   "\\uparrow": "↑",
   "\\rightarrow": "→",
+  "\\to": "→",
   "\\leftarrow": "←",
   "\\Rightarrow": "⇒",
   "\\Leftarrow": "⇐",

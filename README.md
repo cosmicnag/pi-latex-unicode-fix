@@ -32,11 +32,30 @@ Add the path to your `~/.pi/agent/settings.json`:
 The extension is enabled by default. To toggle it:
 - Type `/latex-toggle` in the Pi chat.
 
+**Important**: This extension should only be turned ON when using Gemma or any other models known to output LaTeX for simple symbols. For models that output standard Unicode, keep it OFF to avoid unintended replacements.
+
 ## Supported Symbols
 
-- **Arrows**: `\downarrow`, `\uparrow`, `\rightarrow`, `\leftarrow`, `\Rightarrow`, `\Leftarrow`, `\Leftrightarrow`
-- **Math**: `\approx`, `\neq`, `\leq`, `\ge`, `\dots`, `\pm`, `\times`, `\div`
-- **Greek**: `\alpha` through `\omega`
+| Category | LaTeX Command | Unicode |
+| :--- | :--- | :--- |
+| **Arrows** | `\downarrow` | ↓ |
+| | `\uparrow` | ↑ |
+| | `\rightarrow`, `\to` | → |
+| | `\leftarrow` | ← |
+| | `\Rightarrow` | ⇒ |
+| | `\Leftarrow` | ⇐ |
+| | `\Leftrightarrow` | ⇔ |
+| **Math** | `\approx` | ≈ |
+| | `\neq` | ≠ |
+| | `\leq`, `\le` | ≤ |
+| | `\geq`, `\ge` | ≥ |
+| | `\dots` | … |
+| | `\pm` | ± |
+| | `\times` | × |
+| | `\div` | ÷ |
+| **Greek** | `\alpha` $\dots$ `\omega` | α $\dots$ ω |
+
+*(Full Greek alphabet supported: $\alpha, \beta, \gamma, \delta, \epsilon, \zeta, \eta, \theta, \iota, \kappa, \lambda, \mu, \nu, \xi, \omicron, \pi, \rho, \sigma, \tau, \upsilon, \phi, \chi, \psi, \omega$)*
 
 ## License
 
