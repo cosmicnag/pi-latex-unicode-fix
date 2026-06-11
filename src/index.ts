@@ -46,9 +46,9 @@ const LATEX_MAP: Record<string, string> = {
 };
 
 const latexRegex = new RegExp(
-  Object.keys(LATEX_MAP)
+  `\\$*\\s*(${Object.keys(LATEX_MAP)
     .map(k => k.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))
-    .join('|'),
+    .join('|')})\\s*\\$*`,
   'g'
 );
 
@@ -68,7 +68,7 @@ export default function (pi: ExtensionAPI) {
 
     const content = event.message.content.map((block) => {
       if (block.type === "text") {
-        const text = block.text.replace(latexRegex, match => LATEX_MAP[match] || match);
+        const text = block.text.replace(latexRegex, (_, command) => LATEX_MAP[command] || command);
         return { ...block, text };
       }
       return block;
