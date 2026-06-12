@@ -1,4 +1,8 @@
 import type { ExtensionAPI } from "@earendil-works/pi-coding-agent";
+import fs from "fs";
+import path from "path";
+
+const CONFIG_PATH = path.join(process.env.HOME || "", ".pi", "agent", "latex-unicode-fix-config.json");
 
 const LATEX_MAP: Record<string, string> = {
   "\\downarrow": "↓",
@@ -54,11 +58,23 @@ const latexRegex = new RegExp(
 
 export default function (pi: ExtensionAPI) {
   let enabled = true;
+  try {
+    if (fs.existsSync(CONFIG_PATH)) {
+      enabled = JSON.parse(fs.readFileSync(CONFIG_PATH, "utf8")).enabled;
+    }
+  } catch (e) {
+    console.error("Failed to load latex-unicode-fix config:", e);
+  }
 
   pi.registerCommand("latex-toggle", {
     description: "Toggle LaTeX to Unicode conversion",
     handler: async (_args, ctx) => {
       enabled = !enabled;
+      try {
+        fs.writeFileSync(CONFIG_PATH, JSON.stringify({ enabled }, null, 2));
+      } catch (e) {
+        console.error("Failed to save latex-unicode-fix config:", e);
+      }
       ctx.ui.notify(`LaTeX conversion: ${enabled ? "ON" : "OFF"}`, "info");
     },
   });

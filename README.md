@@ -7,6 +7,7 @@ A Pi extension that intercepts assistant messages and replaces LaTeX symbols (e.
 - **Automatic Conversion**: Automatically replaces common LaTeX math, arrow, and Greek symbols.
 - **Toggle Command**: Use `/latex-toggle` to enable or disable conversion on the fly.
 - **Low Overhead**: Uses a simple regex replacement during the `message_end` event.
+- **Persistent Settings**: The toggle state is saved to `~/.pi/agent/latex-unicode-fix-config.json` and persists across Pi restarts.
 
 ## Installation
 
